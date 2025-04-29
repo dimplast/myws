@@ -1,16 +1,9 @@
 from fasthtml.common import *
-import os
-import secrets
-
-from dotenv import load_dotenv
-load_dotenv()
 
 # Δημιουργία εφαρμογής FastHTML με ενεργοποιημένη την επέκταση WebSocket και session
-secret_key = os.getenv('SECRET_KEY')
-if not secret_key:
-    raise ValueError("SECRET_KEY environment variable is not set")
 
-app = FastHTML(exts='ws', secret_key=secret_key)
+
+app = FastHTML(exts='ws', secret_key='soopersecret')
 rt = app.route
 
 # Λίστα για αποθήκευση μηνυμάτων (τώρα κάθε μήνυμα είναι tuple: (όνομα, κείμενο))
